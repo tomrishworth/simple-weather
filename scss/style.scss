@@ -1,0 +1,113 @@
+// BassCSS Variables
+$space-1: 5px;
+$space-2: 15px;
+$space-3: 30px;
+$space-4: 50px;
+$breakpoint-sm: '(min-width: 768px)';
+$breakpoint-md: '(min-width: 992px)';
+$breakpoint-lg: '(min-width: 1200px)';
+
+@import "./bower_components/normalize-css/normalize";
+
+@import "weather-icons/weather-icons-wind";
+@import "weather-icons/weather-icons.min";
+
+// Basscss Utilities
+@import "./bower_components/basscss-sass/scss/_flexbox.scss";
+@import "./bower_components/basscss-sass/scss/_padding.scss";
+@import "./bower_components/basscss-sass/scss/_margin.scss";
+@import "./bower_components/basscss-sass/scss/_responsive-padding.scss";
+@import "./bower_components/basscss-sass/scss/_responsive-margin.scss";
+@import "./bower_components/basscss-sass/scss/_typography.scss";
+
+body {
+  background: #f0f0f0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.text-cursive {
+  font-family: 'Pacifico', cursive;
+}
+
+.container {
+  background: #fff;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top {
+  background: #001f3f;
+  color: #fff;
+  padding: 20px;
+}
+
+.city {
+  font-size: 40px;
+}
+
+.current-weather {
+  .label {
+    opacity: 0.5;
+    font-weight: 300;
+    font-size: 13px;
+    display: inline-block;
+  }
+}
+
+.item {
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+
+.day {
+  text-transform: uppercase;
+  color: #999;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.weather-icon {
+  font-size: 30px;
+}
+
+.meta {
+  padding-right: 10px;
+  text-align: center;
+  display: flex;
+  .wi {
+    margin-right: 2px;
+  }
+}
+
+.meta-temp {
+  .wi {
+    font-size: 14px;
+  }
+}
+
+.meta-result {
+  span {
+    font-size: 11px;
+    opacity: 0.5;
+    padding-left: 2px;
+  }
+}
+
+.wi-wind {
+  font-size: 22px;
+  margin-right: 2px;
+}
+
+.current-weather {
+  .meta {
+    font-size: 24px;
+  }
+  .meta-temp {
+    .wi {
+      position: relative;
+      top: -2px;
+    }
+  }
+}
+
