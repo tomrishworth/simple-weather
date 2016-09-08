@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Source+Sans+Pro:400" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+        <div class="top">
+            <div class="flex">
+                <div class="city text-cursive">{{ weatherData.name }}</div>
+                <div class="ml-auto center">
+                    <div class="weather-icon mb1">{{{ weatherData.weather[0].id | icon }}}</div>
+                    <div class="status">{{ weatherData.weather[0].main }}</div>
+                </div>
+            </div>
+            <div class="current-weather">
+                <div class="flex">
+                    <div class="meta meta-temp">
+                        <div class="meta-label"><i class="wi wi-thermometer"></i></div>
+                        <div class="meta-result result-temp">{{ weatherData.main.temp | round 0 }}<span>c</span></div>
+                    </div>
+                    <div class="meta meta-wind">
+                        <div class="meta-label">{{{ weatherData.wind.deg | icon-wind }}}</div>
+                        <div class="meta-result result-wind">{{ weatherData.wind.speed | round 0 }}<span>km</span></div>
+                    </div>
+                    <div class="meta meta-clouds" v-if="weatherData.clouds > 1">
+                        <div class="meta-label"><i class="wi wi-cloudy"></i></div>
+                        <div class="meta-result result-clouds">{{ weatherData.clouds }}<span>%</span></div>
+                    </div>
+                    <div class="meta meta-rain" v-if="weatherData.rain">
+                        <div class="meta-label"><i class="wi wi-rain"></i></div>
+                        <div class="meta-result result-rain">{{ weatherData.rain | round 1 }}<span>mm</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="item" v-for="item in forecastData.list">
+                <div class="flex">
+                    <div>
+                        <div class="day">{{ item.dt | dateShort }}</div>
+                        <div class="flex">
+                            <div class="meta meta-temp">
+                                <div class="meta-label"><i class="wi wi-thermometer"></i></div>
+                                <div class="meta-result result-temp">{{ item.temp.day | round 0 }}<span>c</span></div>
+                            </div>
+                            <div class="meta meta-wind">
+                                <div class="meta-label">{{{ item.deg | icon-wind }}}</div>
+                                <div class="meta-result result-wind">{{ item.speed | round 0 }}<span>km</span></div>
+                            </div>
+                            <div class="meta meta-clouds" v-if="item.clouds > 1">
+                                <div class="meta-label"><i class="wi wi-cloudy"></i></div>
+                                <div class="meta-result result-clouds">{{ item.clouds }}<span>%</span></div>
+                            </div>
+                            <div class="meta meta-rain" v-if="item.rain">
+                                <div class="meta-label"><i class="wi wi-rain"></i></div>
+                                <div class="meta-result result-rain">{{ item.rain | round 1 }}<span>mm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-auto center">
+                        <div class="weather-icon mb1">{{{ item.weather[0].id | icon }}}</div>
+                        <div class="status">{{ item.weather[0].main }}</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+<!--       <pre>
+      {{ weatherData | json }}
+      </pre> -->
+<!--   <pre>
+  {{ forecastData | json }}
+  </pre> -->
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.0/vue-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
